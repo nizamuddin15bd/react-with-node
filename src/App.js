@@ -15,7 +15,7 @@ function App() {
     const name = event.target.name.value;
     const email = event.target.email.value;
     const user = { name, email };
-    console.log(user);
+    // console.log(user);
 
     // post data to server
     fetch("http://localhost:5000/user", {
@@ -27,7 +27,8 @@ function App() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        const newUsers = [...users, data];
+        setUsers(newUsers);
       });
   };
   return (
